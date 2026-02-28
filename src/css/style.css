@@ -1,0 +1,615 @@
+.contacts_body,.msg_card_body{border-top:.3px solid #e7e7ec8c;overflow-y:auto}.chat,.user_info{margin-top:auto;margin-bottom:auto}body,html{height:100%;margin:0;background:#7f7fd5;background:-webkit-linear-gradient(to right,#91eae4,#86a8e7,#7f7fd5);background:linear-gradient(to right,#91eae4,#86a8e7,#7f7fd5)}.card{height:calc(100vh - 40px);border-radius:15px!important;background-color:rgba(0,0,0,.4)!important}.contacts_body{padding:.75rem!important;white-space:nowrap}.card-header{border-radius:15px 15px 0 0!important;border-bottom:0!important}.card-footer{border-radius:0 0 15px 15px!important;border-top:0!important}.search,.type_msg{border:0!important;background-color:rgba(0,0,0,.3)!important;color:#fff!important}.container{align-content:center}.search:focus,.type_msg:focus{box-shadow:none!important;outline:0!important}.type_msg{height:60px!important;overflow-y:auto}#send_msg{width:100%!important;display:flex!important}.attach_btn{border-radius:15px 0 0 15px!important;background-color:rgba(0,0,0,.3)!important;border:0!important;color:#fff!important;cursor:pointer}.menu_btn,.search_btn,.send_btn{border-radius:0 15px 15px 0!important;background-color:rgba(0,0,0,.3)!important;border:0!important;color:#fff!important;cursor:pointer}.logout_menu{background-color:rgba(0,0,0,.3)!important;border:0!important;color:#fff!important;cursor:pointer;border-radius:15px;margin-left:10px;padding:10px}.menu_btn{border-radius:15px 0 0 15px!important}.contacts{list-style:none;padding:0}.contacts li{width:100%!important;padding:5px 10px;margin-bottom:15px!important}.contacts li:hover{background-color:rgba(0,0,0,.3);border-radius:11px}.user_img,.user_img_msg{border:1.5px solid #f5f6fa}.user_img{height:55px;width:55px}.user_img_msg{height:40px;width:40px}.img_cont{position:relative;height:55px;width:55px}.img_cont_msg{height:40px;width:40px}.online_icon{position:absolute;height:15px;width:15px;background-color:#4cd137;border-radius:50%;bottom:.2em;right:.4em;border:1.5px solid #fff}.action_menu ul li,.action_menu_user ul li{margin-bottom:5px;border-radius:11px;width:100%}.offline{background-color:#c23616!important}.user_info{margin-left:15px}.user_info span{font-size:17px;color:#fff}.user_info p{font-size:12px;color:rgba(255,255,255,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:170px}.video_cam{margin-left:50px;margin-top:5px}
+.msg_cotainer,.msg_cotainer_send{margin-top:auto;margin-bottom:auto;border-radius:12px;padding:10px;position:relative;}.video_cam span{color:#fff;font-size:20px;cursor:pointer;margin-right:20px}.msg_cotainer{margin-left:10px;background-color:#82ccdd}.msg_cotainer_send{margin-right:10px;background-color:#78e08f}.action_menu,.action_menu_user{padding:5px;background-color:rgba(0,0,0,.5);border-radius:15px;display:none}
+.msg_time,.msg_time_send{display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: rgba(255,255,255,.6);}
+.msg_time{left:0}.msg_time_send{right:0}.msg_head,.relative-container{position:relative}#action_menu_btn,#action_menu_btn_user{position:absolute;right:10px;top:10px;color:#fff;cursor:pointer;font-size:20px}.relative-container ul li{display:flex;align-items:center;justify-content:start}.action_menu{z-index:1;position:absolute;color:#fff;top:-5px}#sender .action_menu{left:15px}#receiver .action_menu{right:15px}.action_menu_user{z-index:100;position:absolute;color:#fff;top:22px;right:22px;font-size:17px;width:calc(100% - 100px);max-width:300px}.action_menu_user ul{list-style:none;padding:0;margin:0;width:100%}.action_menu_user ul li{padding:10px 15px}.action_menu_user ul li i{padding-right:10px}.action_menu ul li:hover,.action_menu_user ul li:hover{cursor:pointer;background-color:rgba(0,0,0,.2)}.action_menu ul li{padding:10px 90px 10px 15px}@media(max-width:576px){.contacts_card{margin-bottom:15px!important}}.custom-file-input:lang(en)~.custom-file-label::after{content:"Browse"}.message_count{margin-left:auto;display:flex;align-items:center;justify-content:center}.badge{font-size:12px!important;padding:5px 9px!important;border-radius:50px!important}.no-messages-container{position:absolute;z-index:0;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;color:#888}.no-messages-container i{font-size:4.5rem;color:#aaa;margin-bottom:15px}.no-messages-container .no-messages{font-size:18px;font-weight:600}.blocked-message{background:linear-gradient(145deg,#f8d7da,#f5c6cb);color:#721c24;border:1px solid #f5c6cb;border-radius:12px;padding:25px;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 15px rgba(0,0,0,.1);width:calc(100% - 40px);margin:20px auto;font-family:'Helvetica Neue',Arial,sans-serif;transition:transform .3s,box-shadow .3s}.blocked-message:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.15)}.blocked-message i{color:#721c24;font-size:28px;margin-right:15px}.blocked-message p{font-size:18px;font-weight:600;margin:0;letter-spacing:.5px}
+/* Правая колонка контактов */
+.contacts-column {
+    padding-left: 0;
+}
+
+/* Контакт */
+.contacts li {
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.2s ease;
+    border-radius: 10px;
+}
+
+.contacts li:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.contacts li.active-contact {
+    background-color: rgba(120, 224, 143, 0.15);
+}
+
+.contacts .user_info span {
+    font-weight: 500;
+}
+
+.contacts .badge {
+    float: right;
+}
+/* ===== Правая колонка ===== */
+
+.contacts-column {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+/* Чтобы body внутри скроллился как у чата */
+.contacts-card .contacts_body {
+    overflow-y: auto;
+}
+
+/* Контакт */
+.contacts li {
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.2s ease;
+    border-radius: 10px;
+}
+
+.contacts li:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.contacts li.active-contact {
+    background-color: rgba(120, 224, 143, 0.15);
+}
+/* ===== Mobile contacts ===== */
+
+.mobile-contacts {
+    padding: 10px 10px 0 10px;
+}
+
+.mobile-contacts-wrapper {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+
+.mobile-contact-item {
+    min-width: 65px;
+    text-align: center;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.mobile-contact-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.mobile-contact-item.active img {
+    border: 3px solid #78e08f;
+}
+
+.mobile-contact-item span {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Кнопка назад */
+.back-button {
+    cursor: pointer;
+    font-size: 25px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+/* ===== Mobile unread badge ===== */
+
+.mobile-avatar-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.mobile-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #f6c23e; /* как badge-warning */
+    color: #fff;
+    font-size: 11px;
+    padding: 3px 6px;
+    border-radius: 50px;
+    font-weight: 600;
+    min-width: 18px;
+    text-align: center;
+}
+/* Drag & Drop */
+.drop-zone {
+    border: 2px dashed #ccc;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: none;
+    color: #888;
+}
+
+.drop-zone.active {
+    display: block;
+    border-color: #78e08f;
+    color: #78e08f;
+}
+
+#previewContainer img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.file-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.chat-image {
+    max-width: 200px;
+    border-radius: 10px;
+    display: block;
+}
+
+.file-name {
+    padding: 8px 12px;
+    background: rgba(0,0,0,0.05);
+    border-radius: 8px;
+}
+
+.download-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    text-decoration: none;
+}
+.chat-members-wrapper {
+    border-bottom: 1px solid #eee;
+  
+
+    max-height: 120px;
+    
+}
+
+.chat-members {
+    display: flex;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.chat-member-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.chat-member-item img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+
+.groups-section {
+    margin-bottom: 10px;
+}
+
+.groups-title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 5px 10px;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.groups-wrapper {
+    max-height: 200px; /* высота прокрутки */
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Красивая тонкая прокрутка */
+.groups-wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+.groups-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+}
+
+.groups-title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px 10px;
+    color: #fff;
+    opacity: 0.9;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.groups-wrapper {
+    max-height: 200px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.groups-wrapper.collapsed {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.toggle-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* ===== Members Collapsible ===== */
+.chat-members-section {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.chat-members-header {
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.05);
+    z-index: 2;
+    position: relative;
+}
+
+/* СКРЫТО ПО УМОЛЧАНИЮ */
+.chat-members-wrapper {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+/* ОТКРЫТО */
+.chat-members-wrapper.open {
+    height: 80px;
+}
+
+/* Горизонтальный список */
+.chat-members {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 10px 15px;
+}
+
+/* Элемент */
+.chat-member-item {
+    flex: 0 0 auto;
+    background: rgba(255,255,255,0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.chat-member-item img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+/* Поворот стрелки */
+#membersToggleIcon {
+    transition: transform 0.3s ease;
+}
+
+#membersToggleIcon.rotate {
+    transform: rotate(180deg);
+}
+
+/* ===== Фикс только правой колонки ===== */
+
+.contacts-column {
+    display: flex;
+}
+
+.contacts-card {
+    height: calc(100vh - 40px); /* Точно как у левой card */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contacts_body {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* ===== Modern Scrollbar ===== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #86a8e7, #7f7fd5);
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #91eae4, #86a8e7);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #86a8e7 transparent;
+}
+
+/* ===== Group Messages ===== */
+
+.img_cont_msg {
+    margin-right: 10px;
+}
+
+.user_img_msg {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.group-sender-name {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    opacity: 0.85;
+}
+
+.msg_card_body {
+    position: relative;
+}
+
+.msg_card_body::before {
+    content: "";
+    position: fixed; /* КЛЮЧЕВОЕ */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* размер логотипа */
+    height: 300px;
+    background: url('/logo.png') center center no-repeat;
+    background-size: contain;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ===== GLOBAL FONT IMPROVEMENT ===== */
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+
+    /* Максимальное сглаживание */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    /* Светлый текст */
+    color: rgba(255,255,255,0.92);
+}
+
+/* Чёткие заголовки */
+.user_info span,
+.group-sender-name {
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Вторичный текст */
+.user_info p,
+.msg_time,
+.msg_time_send {
+    color: rgba(255,255,255,0.6);
+    font-weight: 400;
+}
+
+/* Сообщения */
+.msg_cotainer,
+.msg_cotainer_send {
+    font-size: 14.5px;
+    line-height: 1.45;
+}
+
+/* Улучшение читаемости на тёмном фоне */
+.card,
+.contacts-card {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* Более мягкие кнопки */
+.input-group-text,
+.attach_btn,
+.send_btn,
+.menu_btn {
+    font-weight: 500;
+}
+
+/* Улучшение placeholder */
+::placeholder {
+    color: rgba(255,255,255,0.5) !important;
+    opacity: 1;
+}
+
+/* ===== DARK MESSAGE BUBBLES ===== */
+
+.msg_cotainer {
+    background: linear-gradient(145deg, #2f3e46, #354f52);
+    color: rgba(255,255,255,0.95);
+}
+
+.msg_cotainer_send {
+    background: linear-gradient(145deg, #1e5631, #2d6a4f);
+    color: rgba(255,255,255,0.95);
+}
+
+/* Немного глубины */
+.msg_cotainer,
+.msg_cotainer_send {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* ===== CONTACTS HEADER CLEAN ===== */
+
+.contacts-header {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 18px 15px 18px;
+}
+
+.contacts-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+}
+
+/* ===== SEARCH FULL WIDTH ===== */
+
+.contacts-search-wrapper {
+    width: 100%;
+}
+
+#contactsSearch {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.95);
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+#contactsSearch:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+/* Focus */
+#contactsSearch:focus {
+    outline: none;
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 0 0 2px rgba(134,168,231,0.4);
+}
+
+/* Placeholder */
+#contactsSearch::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+.clickable-user {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+}
+
+.clickable-user:hover {
+    background: rgba(255,255,255,0.08);
+    padding: 2px 6px;
+}
+
+/* Для аватара отдельно */
+.user_img_msg.clickable-user:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.3);
+}
+.system-message {
+    background: rgba(255,255,255,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #ccc;
+    max-width: 70%;
+    text-align: center;
+}
+.msg_card_body {
+    border-top: none !important;
+}
+
+.contacts_body {
+    position: relative;
+}
+
+.contacts_body::before {
+    content: "";
+    position: fixed; /* чтобы был по центру экрана */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* размер */
+    height: 300px;
+    background: url('/logo.png') center center no-repeat;
+    background-size: contain;
+    opacity: 0.08; /* лучше меньше, чем в чате */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
