@@ -7,9 +7,13 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-$stmt = $pdo->prepare("SELECT is_admin FROM users WHERE id = ?");
-$stmt->execute([$_SESSION['user_id']]);
-$user = $stmt->fetch();
+$user_id = $_SESSION['user_id'];
+
+$stmt = mysqli_prepare($conn, "SELECT is_admin FROM users WHERE id = ?");
+mysqli_stmt_bind_param($stmt, "i", $user_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$user = mysqli_fetch_assoc($result);
 
 if (!$user || $user['is_admin'] != 1) {
     die("Доступ запрещен");
