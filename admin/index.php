@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-$stmt = mysqli_prepare($conn, "SELECT is_admin FROM users WHERE id = ?");
+$stmt = mysqli_prepare($connection, "SELECT is_admin FROM users WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $user_id);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
