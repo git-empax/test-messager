@@ -4,9 +4,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 define("DB_SERVER", "localhost");
-define("DB_USERNAME", "ce84840_chatmeral");
-define("DB_PASSWORD", "xVDtNk87");
-define("DB_NAME", "ce84840_chatmeral");
+define("DB_USERNAME", "ceal");
+define("DB_PASSWORD", "7");
+define("DB_NAME", "ce8al");
 
 class Database
 {
@@ -112,3 +112,4 @@ class Database
         return hash_hmac('sha256', $password, 'iqbolshoh');
     }
 }
+
